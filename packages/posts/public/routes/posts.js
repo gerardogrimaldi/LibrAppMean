@@ -1,17 +1,13 @@
 'use strict';
 
-//Setting up route
-angular.module('mean.posts').config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
-        // states for my app
-        $stateProvider
-            .state('all bucket list', {
-                url: '/bucketList',
-                templateUrl: 'public/posts/views/list.html'
-            })
-            .state('add bucket list', {
-                url: '/addBucketList',
-                templateUrl: 'public/posts/views/create.html'
-            });
+angular.module('mean.posts').config(['$stateProvider',
+    function($stateProvider) {
+        $stateProvider.state('posts example page', {
+            url: '/posts/',
+            templateUrl: 'posts/views/index.html'
+        }).state('lista', {
+            url: '/posts/list/',
+            templateUrl: 'posts/views/list.html'
+        });
     }
 ]);

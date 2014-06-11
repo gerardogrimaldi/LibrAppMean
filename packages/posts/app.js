@@ -1,11 +1,3 @@
-/*
-'use strict';
-
-angular.module('mean.posts', []);
-//https://gibbon.co/huigvanderwaal/mean-stack/an-introduction-to-the-mean-stack?playlist=8be13a6b-9828-4195-b02e-75e2a848f5f9
-
-*/
-
 'use strict';
 
 /*
@@ -26,34 +18,38 @@ Posts.register(function(app, auth, database) {
 
     //We are adding a link to the main menu for all authenticated users
     Posts.menus.add({
-        'roles': ['authenticated'],
-        'title': 'Posts',
-        'link': 'all articles'
+        title: 'posts example page',
+        link: 'posts example page',
+        roles: ['authenticated'],
+        menu: 'main'
     });
     Posts.menus.add({
-        'roles': ['authenticated'],
-        'title': 'Create New Posts',
-        'link': 'create article'
+        title: 'listas',
+        link: 'lista',
+        roles: ['authenticated'],
+        menu: 'main'
+    });
+    /**
+    //Uncomment to use. Requires meanio@0.3.7 or above
+    // Save settings with callback
+    // Use this for saving data from administration pages
+    Posts.settings({
+        'someSetting': 'some value'
+    }, function(err, settings) {
+        //you now have the settings object
     });
 
-    /*
-     //Uncomment to use. Requires meanio@0.3.7 or above
-     // Save settings with callback
-     // Use this for saving data from administration pages
-     Articles.settings({'someSetting':'some value'},function (err, settings) {
-     //you now have the settings object
-     });
+    // Another save settings example this time with no callback
+    // This writes over the last settings.
+    Posts.settings({
+        'anotherSettings': 'some value'
+    });
 
-     // Another save settings example this time with no callback
-     // This writes over the last settings.
-     Articles.settings({'anotherSettings':'some value'});
-
-     // Get settings. Retrieves latest saved settigns
-     Articles.settings(function (err, settings) {
-     //you now have the settings object
-     });
-     */
-    //Posts.aggregateAsset('css', 'articles.css');
+    // Get settings. Retrieves latest saved settigns
+    Posts.settings(function(err, settings) {
+        //you now have the settings object
+    });
+    */
 
     return Posts;
 });

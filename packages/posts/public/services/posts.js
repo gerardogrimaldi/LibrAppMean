@@ -1,10 +1,13 @@
-/**
- * Created by Gerardo on 01/06/2014.
- */
 'use strict';
 
-angular.module('mean.bucketList').factory('BucketList', ['$resource',
+angular.module('mean.posts').factory('Posts', ['$resource',
     function($resource) {
-        return $resource('bucketList');
+        return $resource('articles/:articleId', {
+            articleId: '@_id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
     }
 ]);

@@ -1,17 +1,15 @@
 'use strict';
 
-angular.module('mean.posts').controller('BucketListController', ['$scope', '$stateParams', '$location', 'Global', 'BucketList',
-    function ($scope, $stateParams, $location, Global, BucketList) {
+angular.module('mean.posts').controller('PostsController', ['$scope', 'Global', 'Posts',
+    function($scope, Global, Posts) {
         $scope.global = Global;
+        $scope.package = {
+            name: 'posts'
+        };
 
-        $scope.create = function() {
-            var bucketList = new BucketList({
-                title: this.title,
-                description: this.description
-            });
-
-            bucketList.$save(function(response) {
-                $location.path('/bucketList');
+        $scope.find = function() {
+            Posts.query(function(posts) {
+                $scope.posts = posts;
             });
         };
     }

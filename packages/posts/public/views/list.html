@@ -1,3 +1,22 @@
-<section data-ng-controller="BucketListController">
-    Welcome to the bucket list collection
+<h1>List</h1>
+<section data-ng-controller="PostsController" data-ng-init="find()">
+    <ul class="articles unstyled">
+        <li data-ng-repeat="post in posts">
+            <span>{{article.created | date:'medium'}}</span>
+            <span>{{article.user.name}}</span>
+            <h2>
+                <a data-ng-href="#!/articles/{{post._id}}">{{post.title}}</a>
+                <!--span data-ng-if="hasAuthorization(post)">
+                    <a class="btn" href="/#!/articles/{{post._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn" data-ng-click="remove(article);">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </span-->
+            </h2>
+            <div>{{posts.content}}</div>
+        </li>
+    </ul>
+    <h1 data-ng-hide="!posts || posts.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
 </section>
