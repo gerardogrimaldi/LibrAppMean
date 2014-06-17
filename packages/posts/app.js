@@ -18,15 +18,9 @@ Posts.register(function(app, auth, database) {
 
     //We are adding a link to the main menu for all authenticated users
     Posts.menus.add({
-        title: 'posts example page',
-        link: 'posts example page',
-        roles: ['authenticated'],
-        menu: 'main'
-    });
-    Posts.menus.add({
-        title: 'listas',
-        link: 'lista',
-        roles: ['authenticated'],
+        title: 'Blog',
+        link: 'Blog',
+        //roles: ['authenticated'],
         menu: 'main'
     });
     /**

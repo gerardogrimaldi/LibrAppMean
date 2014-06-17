@@ -2,7 +2,7 @@
 
 angular.module('mean.posts').config(['$stateProvider',
     function($stateProvider) {
-        $stateProvider.state('posts example page', {
+        $stateProvider.state('Blog', {
             url: '/posts/',
             templateUrl: 'posts/views/index.html'
         }).state('lista', {
