@@ -94,6 +94,11 @@ exports.all = function(req, res) {
                 status: 500
             });
         } else {
+
+            res.set({
+                'tumama': '12345'
+            })
+
             res.jsonp(articles);
         }
     });
