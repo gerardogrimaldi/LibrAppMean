@@ -88,7 +88,17 @@ exports.show = function(req, res) {
  * List of Articles
  */
 exports.all = function(req, res) {
-    Article.find().sort('-created').populate('user', 'name username').exec(function(err, articles) {
+    var itemsPerPage = req.query.itemsPerPage
+        ,currentPage = req.query.currentPage > 0 ? req.query.currentPage : 0
+
+    Article
+        .find()
+        //.sort('-created')
+        .populate('user', 'name username')
+        .limit(itemsPerPage)
+        .skip(itemsPerPage * currentPage)
+        .sort({name: 'asc'})
+        .exec(function(err, articles) {
         if (err) {
             res.render('error', {
                 status: 500
@@ -96,8 +106,10 @@ exports.all = function(req, res) {
         } else {
 
             res.set({
-                'tumama': '12345'
-            })
+                'totalItems': articles.length,
+                'itemsPerPage': itemsPerPage,
+                'currentPage': currentPage
+            });
 
             res.jsonp(articles);
         }

@@ -23,11 +23,13 @@
                     <div>{{post.content}}</div>
 
                 </div><!-- /.blog-post -->
+                <pager class="pager" total-items="totalItems" ng-model="currentPage"></pager>
 
-                <ul class="pager">
-                    <li><a href="#">Previous</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
+                <div pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></div>
+            </div>
+
+
+
 
             </div><!-- /.blog-main -->
 
